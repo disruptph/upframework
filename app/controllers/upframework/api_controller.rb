@@ -3,9 +3,9 @@ module Upframework
     include ::DeviseTokenAuth::Concerns::SetUserByToken
     include ::Upframework::ErrorHandler
     include ::Upframework::TransformParamKeys
-    include ::Upframework::CrudExtensions
+    include ::Upframework::CrudEndpoint
+    include ::Upframework::ServiceEndpoint
     include ::Upframework::RenderExtensions
-    include ::Upframework::ServiceActionController
 
     before_action :authenticate!
 

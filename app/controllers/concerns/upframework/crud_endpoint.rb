@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Upframework::CrudExtensions
+module Upframework::CrudEndpoint
   extend ::ActiveSupport::Concern
 
   included do

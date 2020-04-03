@@ -1,5 +1,5 @@
 module Upframework
-  module ServiceActionController
+  module ServiceEndpoint
     extend ::ActiveSupport::Concern
 
     included do
