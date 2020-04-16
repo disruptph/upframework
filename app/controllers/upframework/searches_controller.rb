@@ -1,10 +1,6 @@
 module Upframework
-  class SearchesController < Upframework::ApiController
+  class SearchesController < ApplicationController
     skip_authorize_resource
-
-    authorize_resource class: :search
-
-    skip_before_action :set_base_resource
 
     def index
       args = { current_ability: current_ability, current_user: current_user }

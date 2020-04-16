@@ -14,7 +14,7 @@ module Upframework
 
       self.class.send(:attr_reader, *attributes.keys)
 
-      #TODO: Remove. this should be done on the child class.
+      #TODO: Remove. This should be handled on the child class.
       attributes.each do |key, value|
         instance_variable_set("@#{key}", value)
       end

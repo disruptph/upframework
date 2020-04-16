@@ -5,4 +5,3 @@ module Upframework
 end
 
 require "upframework/services/routes"
-require "upframework/searches/routes"
