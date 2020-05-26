@@ -20,4 +20,13 @@ class Upframework::BaseSearch < Upframework::BaseService
   def present_value?(field)
     instance_variable_get("@#{field}").present?
   end
+
+  module ExecuteWrapper
+    def execute
+      super
+      paginate_scope
+    end
+  end
+
+  include ExecuteWrapper
 end
