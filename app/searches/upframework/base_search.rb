@@ -7,7 +7,7 @@ class Upframework::BaseSearch < Upframework::BaseService
   end
 
   def query(field)
-    @resource_scope = yield if field.present?
+    @model_scope = yield if field.present?
   end
 
   def paginate_scope
