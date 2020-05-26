@@ -22,7 +22,14 @@ end
 ```ruby
 #app/searches
 class ProjectSearch < Upframework::BaseSearch
+  def post_initialize
+    @per_page = 10
+    @scope = Project.accessible_by(@current_ability)
+  end
+
   def execute
+    # query logic here using scope object defined above
+
     paginate_scope # paginate results
   end
 end
@@ -36,6 +43,7 @@ end
 ```ruby
 #app/services
 class Project::SubmitService < Upframework::BaseService
+
   def execute
   end
 end
