@@ -43,8 +43,18 @@ end
 ```ruby
 #app/services
 class Project::SubmitService < Upframework::BaseService
+  def post_initialize(id:, **attrs)
+    @project = Project.find(id)
+  end
 
   def execute
+    # put main logic here
+    # ...
+    @project.save
+  end
+
+  def result
+    @project
   end
 end
 
