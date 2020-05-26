@@ -50,11 +50,11 @@ class Project::SubmitService < Upframework::BaseService
   def execute
     # put main logic here
     # ...
-    @project.save
+    project.save
   end
 
   def result
-    @project
+    project
   end
 end
 
