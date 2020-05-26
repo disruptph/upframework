@@ -45,14 +45,12 @@ service.success? => true/false
 ```
 
 #### Routes
-app/services
 ```ruby
 #config/routes
 mount Upframework::Engine => /path
 ```
-
-```
 routes being available
+```
 GET /search
 POST /services/:service_name
 ```
