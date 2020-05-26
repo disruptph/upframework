@@ -41,8 +41,7 @@ class ProjectSearch < Upframework::BaseSearch
 
   def execute
     # query logic here using scope object defined above
-
-    paginate_scope # paginate results
+    # by default results are paginated
   end
 end
 ```
