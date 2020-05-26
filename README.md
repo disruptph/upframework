@@ -18,6 +18,7 @@ class ProjectsController < Upframework::ResourcesController
   # Example of broadcasting with a serialized object using ActionCables.
   def udate
     super do
+      channel = @project.user
       broadcast_serialized(channel, resource: @project, event: "Project Updated")
     end
   end
