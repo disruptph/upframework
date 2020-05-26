@@ -15,6 +15,15 @@ Add features on top of Rails, Especially for APIs. This was created to make stru
 # app/controllers
 # create,show,update,destroy methods are available by default
 class ProjectsController < Upframework::ResourcesController
+  # Example of broadcasting with a serialized object using ActionCables.
+  def udate
+    broadcast_serialized(channel, resource: @project, event: "Project Updated")
+  end
+
+  # Example of rendering serialized responsed. This is using fast_jsonapi serializer.
+  def custom_action
+    render_serialized @project
+  end
 end
 ```
 
