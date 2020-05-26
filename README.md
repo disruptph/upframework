@@ -25,8 +25,9 @@ class ProjectSearch < Upframework::BaseSearch
     paginate_scope # paginate results
   end
 end
-
-search api available in
+```
+```
+#search api available in
 /search?resource=Project&arg1=""&arg2=""
 ```
 
@@ -48,6 +49,12 @@ app/services
 ```ruby
 #config/routes
 mount Upframework::Engine => /path
+```
+
+```
+routes being available
+GET /search
+POST /services/:service_name
 ```
 
 ## Installation
