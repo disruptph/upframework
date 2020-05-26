@@ -4,34 +4,46 @@ Add features on top of Rails, Especially for APIs. This was created to make stru
 #### The following features are available.
 - Creates (create, read, update, destroy) action methods for resources.
 - Has render helpers for API or socket responses. ex. Converting models to its designated serializer.
-- Converts snake case request params (from js standard) to underscore params (ruby standard)
+- Converts snake case request params (from js standard) to underscore params (ruby standard) 
 - Searches layer under app/searches. Usually used for form searches.
 - Services layer under app/services. For single responsibility domain-specific logic code.
 - Exception notifier and API error response handler.
 
 ##  Basic Usage
-####Controllers
+#### Controllers
 ```ruby
 #app/controllers
 class ProjectsController < Upframework::ResourcesController
 end
 ```
 
-####Searches
+#### Searches
 ```ruby
 #app/searches
 class ProjectSearch < Upframework::BaseSearch
+  def execute
+    paginate_scope # paginate results
+  end
 end
+
+search api available in
+/search?resource=Project&arg1=""&arg2=""
 ```
 
-####Services
+#### Services
 ```ruby
 #app/services
-class  Project::SubmitService < Upframework::BaseService
+class Project::SubmitService < Upframework::BaseService
+  def execute
+  end
 end
+
+service = Project::SubmitService.run
+service.result => <Project: Instance>
+service.success? => true/false
 ```
 
-####Routes
+#### Routes
 app/services
 ```ruby
 #config/routes
