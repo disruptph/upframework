@@ -13,7 +13,7 @@ Add features on top of Rails, Especially for APIs. This was created to make stru
 #### Controllers
 ```ruby
 # app/controllers
-# create/show/update/destroy methods are available by default
+# create,show,update,destroy methods are available by default
 class ProjectsController < Upframework::ResourcesController
 end
 ```
