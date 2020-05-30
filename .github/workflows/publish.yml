@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run :
-        cat << EOF > ~/.gem/credentials
-        ---
-        :github: Bearer ${GITHUB_TOKEN}
-        :rubygems_api_key: ${RUBYGEMS_API_KEY}
-        EOF
+          cat << EOF > ~/.gem/credentials
+          ---
+          :github: Bearer ${GITHUB_TOKEN}
+          :rubygems_api_key: ${RUBYGEMS_API_KEY}
+          EOF
       - run: bundle install
       - name: Release Gem
         run: rake release
