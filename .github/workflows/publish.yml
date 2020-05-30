@@ -8,9 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - run :
+        cat << EOF > ~/.gem/credentials
+        ---
+        :github: Bearer ${GITHUB_TOKEN}
+        :rubygems_api_key: ${RUBYGEMS_API_KEY}
+        EOF
+      - run: bundle install
       - name: Release Gem
-        uses: cadwallion/publish-rubygems-action@master
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
-          RELEASE_COMMAND: rake release
+        run: rake release
