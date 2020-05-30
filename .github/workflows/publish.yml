@@ -1,14 +1,19 @@
-name: Publish
+name: Publish Gem
 on:
   push:
     branches:
-      - master
-
+      - "*"
+    tags:
+      - v*
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Publish gem
-        uses: dawidd6/action-publish-gem@v1
-        with:
-          api_key: ${{secrets.RUBYGEMS_API_KEY}}
+      - uses: actions/checkout@v1
+      - name: Release Gem
+        if: contains(github.ref, 'refs/tags/v')
+        uses: cadwallion/publish-rubygems-action@master
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+          RELEASE_COMMAND: rake release
