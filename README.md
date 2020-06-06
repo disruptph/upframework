@@ -82,7 +82,7 @@ mount Upframework::Engine => /path
 routes being available
 ```
 GET /search
-POST /services/:service_name
+POST /{resource}/services/:service_name
 ```
 
 ## Installation
