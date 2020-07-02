@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.0.2", ">= 6.0.2.1"
   spec.add_dependency "cancancan", "~> 3.1.0"
-  spec.add_dependency "fast_jsonapi", "~> 1.5"
+  spec.add_dependency "jsonapi-serializer", "~> 2.0"
 end
