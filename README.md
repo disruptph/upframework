@@ -30,6 +30,20 @@ class ProjectsController < Upframework::ResourcesController
 end
 ```
 
+
+#### Serializers
+```ruby
+# app/serializers
+# classes extending Upframework::BaseSerializer has pagination and meta data enabled
+class ProjectSerializer < Upframework::BaseSerializer
+  belongs_to :user
+
+  has_many :tasks
+
+  default_includes [:user]
+end
+```
+
 #### Searches
 ```ruby
 #app/searches
