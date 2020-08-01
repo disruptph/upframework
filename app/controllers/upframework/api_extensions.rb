@@ -15,7 +15,7 @@ module Upframework
 
       rescue_from CanCan::AccessDenied do |exception|
         respond_to do |format|
-          format.json { render json: { success: false, error: exception.message }, status: :forbidden }
+          format.json { render json: { success: false, error: exception.message, status_code: 403 }, status: :forbidden }
           format.html { redirect_to main_app.root_url, alert: exception.message }
         end
       end
