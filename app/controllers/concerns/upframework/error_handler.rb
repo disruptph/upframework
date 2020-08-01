@@ -16,7 +16,9 @@ module Upframework::ErrorHandler
       ExceptionNotifier.notify_exception(error, env: request.env)
 
       error_info = {
+        success: false,
         error: 'Internal Server Error',
+        status_code: 500,
         exception: "#{error.class.name} : #{error.message}"
       }
 
