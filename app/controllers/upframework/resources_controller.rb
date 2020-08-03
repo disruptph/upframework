@@ -81,7 +81,7 @@ module Upframework
     end
 
     def accessors
-      current_user
+      super || current_user
     end
 
     def base_resource_name
