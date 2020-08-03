@@ -22,10 +22,7 @@ module Upframework
       # format        => format can be :full(returns all default) or :minimal(returns only ids an types)
       # compound_opts => options, e.g: meta or links
       # opts          => extra options from render
-      def broadcast_serialized(channel, resource:, event:, includes: [], format: :full, compound_opts: {})
-        includes << :events
-        resource.add_event(event, creator: current_member)
-
+      def broadcast_serialized(channel, resource:, includes: [], format: :full, compound_opts: {})
         channel_klass = "::#{channel.class.name}Channel".constantize
         channel_klass.broadcast_to(channel, serialize_resource(resource, includes, format, compound_opts))
       end
