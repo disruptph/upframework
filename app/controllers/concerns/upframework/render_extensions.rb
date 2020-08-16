@@ -44,7 +44,15 @@ module Upframework
         serializer_klass = "#{resource_klass}Serializer".constantize
 
         relations = serializer_klass.default_includes
-        relations.concat(Array(includes).map(&:to_sym)) if includes
+
+        includes =
+          if includes.is_a? String
+            includes.split(",").map(&:underscore).map(&:to_sym)
+          else
+            Array(includes).map(&:to_sym)
+          end
+
+        relations.concat(includes.compact)
 
         serializer_klass.new(resource, include: relations, format: format, current_controller: self, **compound_opts).serializable_hash
       end
