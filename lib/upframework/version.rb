@@ -1,3 +1,3 @@
 module Upframework
-  VERSION = '0.2.92'
+  VERSION = '0.3.0'
 end
