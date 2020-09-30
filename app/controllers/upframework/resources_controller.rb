@@ -6,13 +6,13 @@ module Upframework
       base_resource
 
       yield if block_given?
-      render_serialized base_resource
+      render_serialized base_resource, params
     end
 
     def update
       if base_resource.update(base_resource_params)
         yield if block_given?
-        render_serialized base_resource
+        render_serialized base_resource, params
       else
         render_errors base_resource.errors.full_messages
       end
@@ -22,14 +22,14 @@ module Upframework
       base_resource
 
       yield if block_given?
-      render_serialized base_resource, includes: params[:includes]
+      render_serialized base_resource, params
     end
 
     def create
       if base_resource.save
 
         yield if block_given?
-        render_serialized base_resource
+        render_serialized base_resource, params
       else
         render_errors base_resource.errors.full_messages
       end
