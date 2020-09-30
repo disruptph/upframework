@@ -27,6 +27,7 @@ module Upframework
 
     def execute
     end
+    alias_method :run, :execute
 
     def result
     end
