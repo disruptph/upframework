@@ -1,7 +1,13 @@
 require "upframework/engine"
 
 module Upframework
-  # Your code goes here...
+  def self.configuration
+    @configuration ||= {}
+  end
+
+  def self.configure
+    yield(configuration)
+  end
 end
 
 require "upframework/services/routes"
